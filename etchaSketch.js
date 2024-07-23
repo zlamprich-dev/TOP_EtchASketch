@@ -18,9 +18,10 @@ function createGrid(index) {
             console.log(`.${square}`)
             makeGrid.classList.add("grid-square");
             container.appendChild(makeGrid);
-            index = makeGrid.classList
-            square = index;
-            console.log(typeof (square), `${square}`)
+
+            makeGrid.addEventListener('mouseover', () => {
+                makeGrid.style.backgroundColor = randomColor();
+            });
         }
     } else {
         alert("Please enter a valid number.");
@@ -32,16 +33,10 @@ function random(min, max) {
     return num;
 }
 
+
 function randomColor() {
-    return `rgb(${random(0, 255)} ${random(0, 255)}} ${random(0, 255)})`
-}
-
-function applyRandomColor(x) {
-    let applyStyle = document.getElementsByClassName(`.${x}`);
-    for (let i = 0; i <= applyStyle.length; i++) {
-        applyStyle.addEventListener('mouseover', () => {
-            applyStyle.style.backgroundColor = 'black';
-        });
-    }
-
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
 }
