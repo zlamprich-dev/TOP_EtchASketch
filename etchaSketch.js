@@ -4,18 +4,13 @@ element.addEventListener("click", createGrid);
 element.textContent = "Create Grid"
 document.body.insertBefore(element, container);
 
-
-let hover;
-let square;
-
-function createGrid(index) {
+function createGrid() {
     let gridNumbers = prompt("Please enter the size of your board as a number.");
     gridNumbers = parseInt(gridNumbers);
     if (!isNaN(gridNumbers) && gridNumbers > 0) {
         container.innerHTML = '';
         for (let i = 0; i < gridNumbers; i++) {
             let makeGrid = document.createElement("div");
-            console.log(`.${square}`)
             makeGrid.classList.add("grid-square");
             container.appendChild(makeGrid);
 
@@ -32,7 +27,6 @@ function random(min, max) {
     const num = Math.floor(Math.random() * (max - min)) + min;
     return num;
 }
-
 
 function randomColor() {
     const r = Math.floor(Math.random() * 256);
